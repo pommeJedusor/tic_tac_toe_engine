@@ -107,3 +107,5 @@ class Oxo{
     return this;
   }
 }
+
+module.exports = Oxo;
