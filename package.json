@@ -1,0 +1,25 @@
+{
+  "name": "tic_tac_toe_engine",
+  "version": "1.0.0",
+  "description": "a tic-tac-toe engine make to easily implement tic-tac-toe in other programs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pommeJedusor/tic_tac_toe_engine.git"
+  },
+  "keywords": [
+    "tictactoe",
+    "tic_tac_toe",
+    "tic-tac-toe",
+    "oxo"
+  ],
+  "author": "Pomme Jedusor",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/pommeJedusor/tic_tac_toe_engine/issues"
+  },
+  "homepage": "https://github.com/pommeJedusor/tic_tac_toe_engine#readme"
+}
