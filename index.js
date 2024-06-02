@@ -85,4 +85,25 @@ class Oxo{
     }
     return board;
   }
+
+  isValidMove(index){
+    if (index < 0 || index > 9){
+      return false;
+    }
+    if ((this._p1 | this._p2) & (1 << index)){
+      return false;
+    }
+    return true;
+  }
+
+  makeMove(index){
+    if (!this.isValidMove(index))throw "move not valid";
+    if (this._player_turn == 1){
+      this._p1 |= 1 << index;
+    }
+    else {
+      this._p2 |= 1 << index;
+    }
+    return this;
+  }
 }
