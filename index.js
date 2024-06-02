@@ -104,6 +104,7 @@ class Oxo{
     else {
       this._p2 |= 1 << index;
     }
+    this._player_turn = this._player_turn % 2 + 1;
     return this;
   }
 }
