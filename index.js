@@ -86,6 +86,10 @@ class Oxo{
     return board;
   }
 
+  getCurrentPlayer(){
+    return this._player_turn;
+  }
+
   isValidMove(index){
     if (index < 0 || index > 9){
       return false;
