@@ -116,7 +116,7 @@ class Oxo{
   makeMove(index){
     index--;
 
-    if (!this.isValidMove(index))throw "move not valid";
+    if (!this.isValidMove(index))throw `move ${index+1} is not valid`;
     if (this._player_turn == 1){
       this._p1 |= 1 << index;
     }
