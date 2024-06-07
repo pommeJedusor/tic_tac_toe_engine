@@ -16,6 +16,7 @@ function is_valid_1dArray(arr){
 class Oxo{
   _p1 = 0;
   _p2 = 0;
+  _moves = [];
   _player_turn;
   constructor(board){
     this.setBoard(board);
@@ -143,7 +144,7 @@ class Oxo{
   makeMove(index){
     index--;
 
-    if (!this.isValidMove(index))throw `move ${index+1} is not valid`;
+    if (!this.isValidMove(index + 1))throw `move ${index+1} is not valid`;
     if (this._player_turn == 1){
       this._p1 |= 1 << index;
     }
@@ -151,7 +152,27 @@ class Oxo{
       this._p2 |= 1 << index;
     }
     this._player_turn = this._player_turn % 2 + 1;
+    this._moves.push(index+1);
     return this;
+  }
+
+  undoMove(index){
+    index--;
+    const board = this._p1 | this._p2;
+    const last_player = this._player_turn == 1 ? this._p2 : this._p1;
+
+    if (index < 0 || index > 8)throw `index ${index+1} is not valid`;
+    if (board & 1 << index ^ 1 << index)throw `square at ${index + 1} is already empty`;
+    if (last_player & 1 << index ^ 1 << index)throw `tried to undo move of a player (${this._player_turn % 2 + 1}) which isn't the last one`;
+
+    if (this._player_turn == 1){
+      this._p2 ^= 1 << index;
+    }else {
+      this._p1 ^= 1 << index;
+    }
+
+    this._player_turn = this._player_turn % 2 + 1;
+    this._moves.pop();
   }
 }
 
