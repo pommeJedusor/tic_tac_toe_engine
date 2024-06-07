@@ -113,6 +113,28 @@ class Oxo{
     return true;
   }
 
+  isWinning(){
+    // the board of the player who has just played
+    const board = this._player_turn == 1 ? this._p2 : this._p1;
+    //horizontal
+    if (board & board >> 1 & board >> 2 & 0b001_001_001){
+      return true;
+    }
+    //vertical
+    if (board & board >> 3 & board >> 6 & 0b000_000_111){
+      return true;
+    }
+    //top left -> bottom right
+    if (board & board >> 4 & board >> 8 & 0b100_010_001){
+      return true;
+    }
+    //top right -> bottom left
+    if (board & board >> 2 & board >> 4 & 0b001_010_100){
+      return true;
+    }
+    return false;
+  }
+
   makeMove(index){
     index--;
 
