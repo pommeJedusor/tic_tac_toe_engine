@@ -121,6 +121,33 @@ class Oxo{
     return this._player_turn % 2 + 1;
   }
 
+  getWinningMoves(){
+    return this.getMoves().filter((move)=>{
+      this.makeMove(move);
+      const score = this.getCurrentScore();
+      this.undoLastMove();
+      return score == this._player_turn;
+    });
+  }
+
+  getLosingMoves(){
+    return this.getMoves().filter((move)=>{
+      this.makeMove(move);
+      const score = this.getCurrentScore();
+      this.undoLastMove();
+      return score == this._player_turn % 2 + 1;
+    });
+  }
+
+  getDrawingMoves(){
+    return this.getMoves().filter((move)=>{
+      this.makeMove(move);
+      const score = this.getCurrentScore();
+      this.undoLastMove();
+      return score == 0;
+    });
+  }
+
   isValidMove(index){
     index--;
 
