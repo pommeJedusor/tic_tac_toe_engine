@@ -135,6 +135,11 @@ class Oxo{
     return false;
   }
 
+  isFinished(){
+    const board = this._p1 | this._p2;
+    return !(board ^ 0b111_111_111);
+  }
+
   makeMove(index){
     index--;
 
