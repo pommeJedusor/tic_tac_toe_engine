@@ -174,6 +174,10 @@ class Oxo{
     this._player_turn = this._player_turn % 2 + 1;
     this._moves.pop();
   }
+
+  undoLastMove(){
+    this.undoMove(this._moves.at(-1));
+  }
 }
 
 module.exports = Oxo;
