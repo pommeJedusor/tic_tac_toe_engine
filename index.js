@@ -51,6 +51,7 @@ class Oxo{
         this._player_turn = this._player_turn % 2 + 1 ;
       }
     }
+    return this;
   }
 
   getStringBoard(){
@@ -173,10 +174,12 @@ class Oxo{
 
     this._player_turn = this._player_turn % 2 + 1;
     this._moves.pop();
+    return this;
   }
 
   undoLastMove(){
     this.undoMove(this._moves.at(-1));
+    return this;
   }
 }
 
