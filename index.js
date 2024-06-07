@@ -90,6 +90,15 @@ class Oxo{
     return this._player_turn;
   }
 
+  getMoves(){
+    let moves = [];
+    const board = this._p1 | this._p2;
+    for (let i=0;i<9;i++){
+      if (!(board & 1 << i))moves.push(i+1);
+    }
+    return moves;
+  }
+
   isValidMove(index){
     if (index < 0 || index > 9){
       return false;
