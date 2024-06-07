@@ -101,6 +101,26 @@ class Oxo{
     return moves;
   }
 
+  // return the score expected with perfect play from both players, 1 -> player 1 is winning, 2 -> player 2 is winning, 0 -> draw
+  getCurrentScore(){
+    if (this.isWinning())return this._player_turn % 2 + 1;
+    if (this.isFinished())return 0;
+
+    const moves = this.getMoves();
+    let draw_available = false;
+
+    for (const move of moves){
+      this.makeMove(move);
+      const score = this.getCurrentScore();
+      this.undoLastMove();
+
+      if (score == this._player_turn)return score;
+      if (score == 0)draw_available = true;
+    }
+    if (draw_available)return 0;
+    return this._player_turn % 2 + 1;
+  }
+
   isValidMove(index){
     index--;
 
@@ -127,11 +147,11 @@ class Oxo{
       return true;
     }
     //top left -> bottom right
-    if (board & board >> 4 & board >> 8 & 0b100_010_001){
+    if (board & board >> 4 & board >> 8 & 0b000_000_001){
       return true;
     }
     //top right -> bottom left
-    if (board & board >> 2 & board >> 4 & 0b001_010_100){
+    if (board & board >> 2 & board >> 4 & 0b000_000_100){
       return true;
     }
     return false;
