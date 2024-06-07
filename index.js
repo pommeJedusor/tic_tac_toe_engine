@@ -100,16 +100,22 @@ class Oxo{
   }
 
   isValidMove(index){
-    if (index < 0 || index > 9){
+    index--;
+
+    if (index < 0 || index > 8){
       return false;
     }
+
     if ((this._p1 | this._p2) & (1 << index)){
       return false;
     }
+
     return true;
   }
 
   makeMove(index){
+    index--;
+
     if (!this.isValidMove(index))throw "move not valid";
     if (this._player_turn == 1){
       this._p1 |= 1 << index;
