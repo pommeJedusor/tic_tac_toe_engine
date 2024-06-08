@@ -121,6 +121,30 @@ class Oxo{
     return this._player_turn % 2 + 1;
   }
 
+  getBestMove(){
+    let draw_move;
+
+    const moves = this.getMoves();
+    if (moves.length == 0){
+      throw "no move available";
+    }
+
+    for (const move of moves){
+      this.makeMove(move);
+      const score = this.getCurrentScore();
+      this.undoLastMove();
+
+      if (score == this._player_turn){
+        return move;
+      }
+      if (score == 0){
+        draw_move = move;
+      }
+    }
+
+    return draw_move || moves[0];
+  }
+
   getWinningMoves(){
     return this.getMoves().filter((move)=>{
       this.makeMove(move);
