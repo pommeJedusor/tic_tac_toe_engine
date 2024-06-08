@@ -74,6 +74,14 @@ in an array with the index from 1 to 9 like:
 oxo.getMoves();
 ```
 
+### getBestMove()
+This method return the best move, if multiples moves are the best ones it takes the last one.
+Move is from 1 to 9 like before:
+
+```javascript
+oxo.getBestMove();
+```
+
 ### getCurrentScore()
 This method returns the expected score with perfect play from both players.
 - 1 -> player 1 is winning
