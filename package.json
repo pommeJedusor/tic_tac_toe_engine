@@ -17,7 +17,7 @@
     "oxo"
   ],
   "author": "Pomme Jedusor",
-  "license": "GPL-3.0-or-later",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/pommeJedusor/tic_tac_toe_engine/issues"
   },
