@@ -213,18 +213,25 @@ class Oxo{
     return !(board ^ 0b111_111_111);
   }
 
-  makeMove(index){
-    index--;
+  makeMove(...indexes){
+    // check if there is only one array
+    if (indexes.length == 1 && Array.isArray(indexes[0])){
+      return this.makeMove(...indexes[0]);
+    }
 
-    if (!this.isValidMove(index + 1))throw new Error(`move ${index+1} is not valid`);
-    if (this._player_turn == 1){
-      this._p1 |= 1 << index;
+    for (let index of indexes){
+      index--;
+
+      if (!this.isValidMove(index + 1))throw new Error(`move ${index+1} is not valid`);
+      if (this._player_turn == 1){
+        this._p1 |= 1 << index;
+      }
+      else {
+        this._p2 |= 1 << index;
+      }
+      this._player_turn = this._player_turn % 2 + 1;
+      this._moves.push(index+1);
     }
-    else {
-      this._p2 |= 1 << index;
-    }
-    this._player_turn = this._player_turn % 2 + 1;
-    this._moves.push(index+1);
     return this;
   }
 
