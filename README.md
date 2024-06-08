@@ -139,10 +139,13 @@ oxo.isFinished();
 ```
 
 ### makeMove(index)
-This method make the move of the given index (starting from 1) for the player for which it's the turn.
+This method make the move of the given index.es (starting from 1) for the player for which it's the turn.
 Throw an error if the move is not possible, so make sure to check with **[isValidMove](#isvalidmoveindex)** before.
 ```javascript
-oxo.makeMove(1);
+// the three lines does the same thing
+oxo.makeMove(1).makeMove(2).makeMove(3);
+oxo.makeMove(1, 2, 3);
+oxo.makeMove([1, 2, 3]);
 ```
 
 ### undoMove(index)
