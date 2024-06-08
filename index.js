@@ -37,7 +37,7 @@ class Oxo{
       get_square = (board, index)=>board[Math.floor(index/3)][index%3];
     }
     else {
-      throw "board format is not valid";
+      throw new Error("board format is not valid");
     }
 
     this._player_turn = 1;
@@ -126,7 +126,7 @@ class Oxo{
 
     const moves = this.getMoves();
     if (moves.length == 0){
-      throw "no move available";
+      throw new Error("no move available");
     }
 
     for (const move of moves){
@@ -216,7 +216,7 @@ class Oxo{
   makeMove(index){
     index--;
 
-    if (!this.isValidMove(index + 1))throw `move ${index+1} is not valid`;
+    if (!this.isValidMove(index + 1))throw new Error(`move ${index+1} is not valid`);
     if (this._player_turn == 1){
       this._p1 |= 1 << index;
     }
@@ -233,9 +233,9 @@ class Oxo{
     const board = this._p1 | this._p2;
     const last_player = this._player_turn == 1 ? this._p2 : this._p1;
 
-    if (index < 0 || index > 8)throw `index ${index+1} is not valid`;
-    if (board & 1 << index ^ 1 << index)throw `square at ${index + 1} is already empty`;
-    if (last_player & 1 << index ^ 1 << index)throw `tried to undo move of a player (${this._player_turn % 2 + 1}) which isn't the last one`;
+    if (index < 0 || index > 8)throw new Error(`index ${index+1} is not valid`);
+    if (board & 1 << index ^ 1 << index)throw new Error(`square at ${index + 1} is already empty`);
+    if (last_player & 1 << index ^ 1 << index)throw new Error(`tried to undo move of a player (${this._player_turn % 2 + 1}) which isn't the last one`);
 
     if (this._player_turn == 1){
       this._p2 ^= 1 << index;
