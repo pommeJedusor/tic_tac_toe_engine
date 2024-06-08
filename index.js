@@ -64,25 +64,31 @@ class Oxo{
     return string_board;
   }
 
-  get1DArray(){
+  get1DArray(use_int=true){
+    const zero = use_int ? 0 : "0";
+    const one = use_int ? 1 : "1";
+    const two = use_int ? 2 : "2";
     const board = [];
     for (let i=0;i<9;i++){
-      if (this._p1 & 1 << i)board.push(1);
-      else if (this._p2 & 1 << i)board.push(2);
-      else board.push(0);
+      if (this._p1 & 1 << i)board.push(one);
+      else if (this._p2 & 1 << i)board.push(two);
+      else board.push(zero);
     }
     return board;
   }
 
-  get2DArray(){
+  get2DArray(use_int=true){
+    const zero = use_int ? 0 : "0";
+    const one = use_int ? 1 : "1";
+    const two = use_int ? 2 : "2";
     const board = [];
     for (let i=0;i<3;i++){
       board.push([]);
       for (let j=0;j<3;j++){
         const index = i*3 +j;
-        if (this._p1 & 1 << index)board.at(-1).push(1);
-        else if (this._p2 & 1 << index)board.at(-1).push(2);
-        else board.at(-1).push(0);
+        if (this._p1 & 1 << index)board.at(-1).push(one);
+        else if (this._p2 & 1 << index)board.at(-1).push(two);
+        else board.at(-1).push(zero);
       }
     }
     return board;
