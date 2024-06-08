@@ -60,7 +60,12 @@ This method returns the current board in the format of a 9 length array of (0|1|
 
 Number not string!
 ```javascript
+//could also be write:  oxo.get1DArray(use_int=true);
+// return something like : [0, 0, 0, 0, 0, 0, 0, 0, 0]
 oxo.get1DArray();
+//could also be write:  oxo.get1DArray(use_int=false);
+// return something like : ["0", "0", "0", "0", "0", "0", "0", "0", "0"]
+oxo.get1DArray(false);
 ```
 
 ### get2DArray()
