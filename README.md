@@ -161,5 +161,8 @@ oxo.undoMove(1);
 ### undoLastMove()
 This method undo the last move played.
 ```javascript
+// undo the last move
 oxo.undoLastMove();
+// undo the two last moves
+oxo.undoLastMove(2);
 ```
