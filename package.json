@@ -1,6 +1,6 @@
 {
   "name": "simple_tic_tac_toe_engine",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "description": "a tic-tac-toe engine make to easily implement tic-tac-toe in other programs",
   "main": "index.js",
   "scripts": {
