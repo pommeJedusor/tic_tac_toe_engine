@@ -19,10 +19,10 @@ class Oxo{
   _moves = [];
   _player_turn;
   constructor(board){
-    this.setBoard(board);
+    this._setBoard(board);
   }
 
-  setBoard(board){
+  _setBoard(board){
     let get_square;
     if (!board){
       get_square = (board, index)=>0;
