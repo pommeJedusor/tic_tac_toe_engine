@@ -7,6 +7,8 @@ The object **Oxo** can take as input.
 - a 1D array of length 9 composed of 1, "1", 2, "2", "3" or 3
 - a 2D of length 3x3 composed of 1, "1", 2, "2", "3" or 3
 ```javascript
+const Oxo = require("simple_tic_tac_toe_engine");
+
 let oxo = new Oxo();
 ```
 ```javascript
@@ -29,6 +31,24 @@ let oxo6 = new Oxo([["0", "2", "0"], ["0", "1", "0"], ["0", "0", "0"]]);
 ```
 
 ## methods
+- [gets](#getstringboard)
+  - [getStringBoard](#getstringboard)
+  - [get1DArray](#get1darray)
+  - [get2DArray](#get2darray)
+  - [getCurrentPlayer](#getcurrentplayer)
+  - [getMoves](#getmoves)
+  - [getBestMove](#getbestmove)
+  - [getCurrentScore](#getcurrentscore)
+  - [getWinningMoves, getLosingMoves, getDrawingMoves](#getwinningmoves-getlosingmoves-getdrawingmoves)
+- [is](#isvalidmoveindex)
+  - [isValidMove](#isvalidmoveindex)
+  - [isWinning](#iswinning)
+  - [isFinished](#isfinished)
+- [make | undo move](#isvalidmoveindex)
+  - [makeMove](#makemoveindex)
+  - [undoMove](#undomoveindex)
+  - [undoLastMove](#undolastmove)
+
 ### getStringBoard()
 This method returns the current board in the format of a 9 length string of (0|1|2).
 ```javascript
