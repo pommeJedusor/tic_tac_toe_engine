@@ -255,8 +255,10 @@ class Oxo{
     return this;
   }
 
-  undoLastMove(){
-    this.undoMove(this._moves.at(-1));
+  undoLastMove(nb_times=1){
+    for (let i=0;i<nb_times;i++){
+      this.undoMove(this._moves.at(-1));
+    }
     return this;
   }
 }
